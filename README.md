@@ -8,9 +8,9 @@
   <p align="center">
 NFTTicketer is a platform transforming the ticketing business by making use of NFTs. <br />
     <br />
-    <a href="">View Demo</a>
+    <a href="https://nftticketer.on.fleek.co/">View Demo</a>
     ·
-    <a href="">Demo Video</a>
+    <a href="https://vimeo.com/740132221">Demo Video</a>
     ·
     <a href="https://github.com/DaniiRix/NFTTicketer/issues">Report Bug</a>
     ·
