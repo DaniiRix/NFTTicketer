@@ -39,6 +39,8 @@ Once the user receives their ticket, the merchant can use our QR code scanning s
 
 All the NFT metadata is stored on the open network of IPFS with the help of Pinata and the client is hosted on the permissionless open network using Fleek.
 
+Contract: <a href="https://mumbai.polygonscan.com/address/0x8eae1cbf2b211abd3401c6280ee27748c6fab6ef">https://mumbai.polygonscan.com/address/0x8eae1cbf2b211abd3401c6280ee27748c6fab6ef</a>
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contributing

@@ -29,7 +29,7 @@ const Home = () => {
       `EventCreated - sender: ${sender} tokenId: ${eventId.toNumber()}`
     );
     setUrl(
-      'http://nticketer.vercel.app/buy?cid=' +
+      'https://nftticketer.on.fleek.co/buy?cid=' +
         cid +
         '&eventId=' +
         eventId.toNumber()
@@ -46,7 +46,7 @@ const Home = () => {
         contract.off('Created', onCreated);
       }
     };
-  }, [contract]);
+  }, []);
 
   const mint = async () => {
     setLoading(true);
@@ -83,8 +83,6 @@ const Home = () => {
 
       const response = await postToPinata(pinataObj);
 
-      setCid(response.data.IpfsHash);
-
       const tx = await contract.create(
         title,
         description,
@@ -94,6 +92,8 @@ const Home = () => {
       );
 
       const res = await tx.wait();
+      setCid(response.data.IpfsHash);
+
       console.log(res);
       toast.success('Event created successfully');
 
@@ -174,7 +174,7 @@ const Home = () => {
 
               {url && (
                 <Link href={url}>
-                  <a className="text-blue-400 text-center">
+                  <a className="block text-blue-400 text-center truncate">
                     <span className="text-black/90 font-semibold">
                       MINT NFT:{' '}
                     </span>

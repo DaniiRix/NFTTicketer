@@ -1,30 +1,31 @@
 import { useEffect, useState } from 'react';
 import QrReader from 'react-qr-scanner';
 import { ethers } from 'ethers';
-import { useSigner } from 'wagmi';
+import { useAccount, useSigner } from 'wagmi';
 
 import { CONTRACT_ADDRESS } from '../utils';
 import ContractABI from '../abi/core.json';
 import { toast } from 'react-toastify';
 
 const Scanner = () => {
+  const { address } = useAccount();
   const [data, setData] = useState(null);
   const [isVerified, setIsVerified] = useState(false);
   const { data: signer } = useSigner();
 
   useEffect(() => {
-    const timer1 = setTimeout(() => {
+    setTimeout(() => {
       setData({
-        owner: '0x9aD81D4dAfe933d9BB7cd18Ca7667169CE224234',
+        owner: address,
         ticketId: 1,
       });
       parseData(
         JSON.stringify({
-          owner: '0x9aD81D4dAfe933d9BB7cd18Ca7667169CE224234',
+          owner: address,
           ticketId: 1,
         })
       );
-    }, 2000);
+    }, 20000);
   }, []);
 
   const parseData = async (qrData) => {
@@ -62,13 +63,6 @@ const Scanner = () => {
           </h1>
           <QrReader
             delay={500}
-            constraints={{
-              audio: false,
-              video: {
-                deviceId:
-                  '4479cb6a3a1164212dfdda1be0bc41a50fc9cd4789a844d43a0a2d855abe193c',
-              },
-            }}
             onError={console.error}
             onScan={(result) => {
               if (result) {
